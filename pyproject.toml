@@ -1,0 +1,57 @@
+[project]
+name = "paper-prowler"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "davidberenstein1957", email = "david.m.berenstein@gmail.com"},
+]
+dependencies = [
+    "arxiv>=2.1.0",
+]
+requires-python = ">=3.10,<3.13"
+readme = "README.md"
+license = {text = "MIT"}
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+[tool.ruff]
+line-length = 120
+
+[tool.black]
+line-length = 120
+
+[tool.pdm]
+distribution = true
+
+[tool.pdm.version]
+source = "file"
+path = "src/paper_prowler/__init__.py"
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "mkdocs-material>=9.5.26",
+    "mkdocs-literate-nav>=0.6.1",
+    "mkdocs-section-index>=0.3.9",
+    "mkdocs-gen-files>=0.5.0",
+    "mkdocs-open-in-new-tab>=1.0.3",
+    "mike>=2.1.1",
+    "Pillow>=10.3.0",
+    "CairoSVG>=2.7.1",
+    "mknotebooks>=0.8.0",
+    "flake8>=7.1.0",
+    "ruff>=0.4.9",
+    "pytest>=8.2.2",
+    "ipython>=8.25.0",
+    "black>=24.4.2",
+    "build>=1.2.1",
+    "pre-commit>=3.7.1",
+    "mkdocstrings[python]>=0.25.1",
+]
+
+[tool.pdm.scripts]
+test = "pytest tests"
+lint = "ruff check"
+format = "black ."
+all = {composite = ["format", "lint", "test"]}
