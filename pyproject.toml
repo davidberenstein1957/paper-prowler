@@ -7,6 +7,10 @@ authors = [
 ]
 dependencies = [
     "arxiv>=2.1.0",
+    "feedparser>=6.0.10",
+    "haystack-ai>=2.2.1",
+    "sentence-transformers>=3.0.1",
+    "plotly>=5.22.0",
 ]
 requires-python = ">=3.10,<3.13"
 readme = "README.md"
