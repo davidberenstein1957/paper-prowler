@@ -97,10 +97,15 @@ markdown_extensions:
 plugins:
   - search
   - open-in-new-tab
-  # - gen-files:
-  #     scripts:
-  #       - docs/scripts/gen_ref_pages.py
+  - gen-files:
+      scripts:
+        - docs/scripts/prowl_arxiv.py
+        - docs/scripts/prowl_rss.py
+        - docs/scripts/create_rss_pages.py
+        - docs/scripts/create_arxiv_pages.py
   - section-index
+  - literate-nav:
+      nav_file: SUMMARY.md
   - mkdocstrings:
       handlers:
         python:
@@ -118,6 +123,3 @@ plugins:
             private: true
   - social
   - mknotebooks
-
-nav:
-  - Me: index.md

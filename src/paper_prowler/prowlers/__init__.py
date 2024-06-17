@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#
+from paper_prowler.prowlers.arxiv import ArxivProwler
+from paper_prowler.prowlers.rss import RssProwler
 
-if __name__ == "__main__":
-    print("Hello, world!")
+__all__ = ["ArxivProwler", "RssProwler"]
