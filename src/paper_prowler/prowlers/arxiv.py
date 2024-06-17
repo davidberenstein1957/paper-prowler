@@ -57,7 +57,7 @@ class ArxivProwler(Prowler):
                     "content": result.pdf_url,
                     "datetime": result.updated.strftime("%Y-%m-%d %H:%M:%S"),
                     "query": query,
-                    "linkedin:": li_post,
+                    "linkedin": li_post,
                     "x": x_post,
                 },
             )

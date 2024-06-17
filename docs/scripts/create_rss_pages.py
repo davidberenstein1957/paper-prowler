@@ -57,9 +57,9 @@ def load_data() -> None:
                 f.write(f"    | [{row['titles']}](./{hash(query)}/{row['id']}.md) | {row['abstracts']} |\n")
 
     with mkdocs_gen_files.open("SUMMARY.md", "a") as f:
+        f.write("* RSS\n")
+        f.write(f"    * [Overview]({DATA_PATH}/index.md)\n")
         for query in df["queries"].unique():
-            f.write("* RSS\n")
-            f.write(f"    * [Overview]({DATA_PATH}/index.md)\n")
             f.write(f"    * {query}\n")
             filtered_df = df[df["queries"] == query]
             for _, row in filtered_df.iterrows():

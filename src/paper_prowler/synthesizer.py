@@ -22,12 +22,14 @@ class Synthesizer:
     def __init__(self, llm: LLM = None, system_prompt: str = None):
         if system_prompt is None:
             system_prompt = (
-                "You are an expert social media expert for a tech company in the field of AI, NLP and LLMs. "
+                "You are an expert social media expert and write about tech from other companies in the field of AI, NLP and LLMs. "
                 "Write a post for PLATFORM based on the following CONTENT. "
-                "Make sure to include the exact URL and make it concise and catchy without hashtags."
+                "Take care to provide a concise overview with the results and fully written URL."
             )
         if llm is None:
             llm = OpenAILLM(model="gpt-3.5-turbo")
+
+        llm.generation_kwargs = {"max_new_tokens": 2000, "temperature": 0.7}
         self.system_prompt = system_prompt
         self.task = TextGeneration(llm=llm)
         self.task.load()
