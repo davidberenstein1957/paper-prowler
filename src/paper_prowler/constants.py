@@ -23,6 +23,7 @@ QUERIES_ARXIV = [
     "LLMs as judges",
     "data quality for LLMs",
     "human feedback LLMs",
+    "LLM benchmarking and evaluation",
 ]
 
 QUERIES_RSS = [

@@ -100,8 +100,8 @@ plugins:
   - gen-files:
       scripts:
         - docs/scripts/prowl_arxiv.py
-        - docs/scripts/prowl_rss.py
-        - docs/scripts/create_rss_pages.py
+        #- docs/scripts/prowl_rss.py
+        #- docs/scripts/create_rss_pages.py
         - docs/scripts/create_arxiv_pages.py
   - section-index
   - literate-nav:
