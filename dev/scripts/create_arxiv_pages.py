@@ -41,7 +41,9 @@ def load_data() -> None:
                 f.write("## Socials \n")
                 f.write("| LinkedIn | X |\n")
                 f.write("|------|-------|\n")
-                f.write(f"|{paper.meta.get('linkedin')}|{paper.meta.get('x')}|\n\n")
+                linkedin = paper.meta.get("linkedin").replace("\n", "<br>")
+                x = paper.meta.get("x").replace("\n", "<br>")
+                f.write(f"|{linkedin}|{x}|\n\n")
                 f.write("## PDF\n")
                 f.write(f"<iframe src='{paper.meta['content']}' width='100%' height='1000px'></iframe>")
 
@@ -57,9 +59,9 @@ def load_data() -> None:
                 f.write(f"    | [{row['titles']}](./{hash(query)}/{row['id']}.md) | {row['abstracts']} |\n")
 
     with mkdocs_gen_files.open("SUMMARY.md", "a") as f:
+        f.write("* Papers\n")
+        f.write(f"    * [Overview]({DATA_PATH}/index.md)\n")
         for query in df["queries"].unique():
-            f.write("* Papers\n")
-            f.write(f"    * [Overview]({DATA_PATH}/index.md)\n")
             f.write(f"    * {query}\n")
             filtered_df = df[df["queries"] == query]
             for _, row in filtered_df.iterrows():
