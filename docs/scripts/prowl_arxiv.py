@@ -21,7 +21,7 @@ def load_data():
     arxiv_prowler = ArxivProwler()
     print("Running search and indexing results")
     for query in QUERIES_ARXIV:
-        results = arxiv_prowler.search(query, max_results=10)
+        results = arxiv_prowler.search(query, max_results=5)
         arxiv_prowler.post_process(results, query, synthesize=True)
     print("Data updated successfully!")
 

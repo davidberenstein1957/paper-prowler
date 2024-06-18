@@ -54,7 +54,7 @@ class ArxivProwler(Prowler):
                     "type": self.type,
                     "url": result.entry_id,
                     "title": result.title,
-                    "content": result.pdf_url,
+                    "content": result.pdf_url.replace("http://", "https://"),
                     "datetime": result.updated.strftime("%Y-%m-%d %H:%M:%S"),
                     "query": query,
                     "linkedin": li_post,

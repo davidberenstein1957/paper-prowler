@@ -19,11 +19,13 @@ DATABASE_DIRECTORY = os.getenv("DATABASE_DIRECTORY", Path(__file__).parent.paren
 DATABASE_PATH = os.getenv("DATABASE_PATH", os.path.join(DATABASE_DIRECTORY, "database.json"))
 
 QUERIES_ARXIV = [
-    "synthetic data generation llms",
-    "LLMs as judges",
-    "data quality for LLMs",
-    "human feedback LLMs",
-    "LLM benchmarking and evaluation",
+    "synthetic data language model",
+    "judge language model",
+    "data quality language model",
+    "human feedback language model",
+    "benchmark and eveluation language model",
+    "vision language model",
+    "survey language model",
 ]
 
 QUERIES_RSS = [

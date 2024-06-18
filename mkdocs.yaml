@@ -99,7 +99,7 @@ plugins:
   - open-in-new-tab
   - gen-files:
       scripts:
-        - docs/scripts/prowl_arxiv.py
+        # - docs/scripts/prowl_arxiv.py
         - docs/scripts/create_arxiv_pages.py
   - section-index
   - literate-nav:
