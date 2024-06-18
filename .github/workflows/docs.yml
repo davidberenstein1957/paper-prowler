@@ -11,6 +11,8 @@ on:
       - gh-pages
     tags:
       - "**"
+  schedule:
+    - cron: '0 0 * * 3,6'
 
   pull_request:
     types:
