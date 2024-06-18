@@ -24,6 +24,7 @@ from paper_prowler.constants import DATABASE_PATH
 
 class Database(InMemoryDocumentStore):
     def to_disk(self, path: str = DATABASE_PATH):
+        """Write the database and its' data to disk as a JSON file."""
         data: Dict[str, Any] = self.to_dict()
         data["documents"] = [doc.to_dict(flatten=False) for doc in self.storage.values()]
         with open(path, "w") as f:
@@ -31,6 +32,7 @@ class Database(InMemoryDocumentStore):
 
     @classmethod
     def from_disk(cls, path: str = DATABASE_PATH) -> "Database":
+        """Load the database and its' data from disk as a JSON file."""
         if Path(path).exists():
             try:
                 with open(path, "r") as f:
