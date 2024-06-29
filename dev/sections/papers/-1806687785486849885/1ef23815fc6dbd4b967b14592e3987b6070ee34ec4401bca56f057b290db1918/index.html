@@ -1,0 +1,2297 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A website by davidberenstein1957 that keeps track of papers and interesting content.">
+      
+      
+        <meta name="author" content="davidberenstein1957">
+      
+      
+        <link rel="canonical" href="https://davidberenstein1957.github.io/paper-prowler/dev/sections/papers/-1806687785486849885/1ef23815fc6dbd4b967b14592e3987b6070ee34ec4401bca56f057b290db1918/">
+      
+      
+        <link rel="prev" href="../e59a93b980c1587952fd591081edb63485c9d8a67a6813d2640ac44585382908/">
+      
+      
+        <link rel="next" href="../e086c20943b945085fe4dc6e8194d198338bb80cb3d0cc13d67125075c3af1a2/">
+      
+      
+      <link rel="icon" href="../../../../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.27">
+    
+    
+      
+        <title>FATE-LLM: A Industrial Grade Federated Learning Framework for Large Language Models - Paper Prowler</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.6543a935.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../../../css/ansi-colours.css">
+    
+      <link rel="stylesheet" href="../../../../css/jupyter-cells.css">
+    
+      <link rel="stylesheet" href="../../../../css/pandas-dataframe.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="FATE-LLM: A Industrial Grade Federated Learning Framework for Large Language Models - Paper Prowler" >
+      
+        <meta  property="og:description"  content="A website by davidberenstein1957 that keeps track of papers and interesting content." >
+      
+        <meta  property="og:image"  content="https://davidberenstein1957.github.io/paper-prowler/dev/assets/images/social/sections/papers/-1806687785486849885/1ef23815fc6dbd4b967b14592e3987b6070ee34ec4401bca56f057b290db1918.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://davidberenstein1957.github.io/paper-prowler/dev/sections/papers/-1806687785486849885/1ef23815fc6dbd4b967b14592e3987b6070ee34ec4401bca56f057b290db1918/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="FATE-LLM: A Industrial Grade Federated Learning Framework for Large Language Models - Paper Prowler" >
+      
+        <meta  name="twitter:description"  content="A website by davidberenstein1957 that keeps track of papers and interesting content." >
+      
+        <meta  name="twitter:image"  content="https://davidberenstein1957.github.io/paper-prowler/dev/assets/images/social/sections/papers/-1806687785486849885/1ef23815fc6dbd4b967b14592e3987b6070ee34ec4401bca56f057b290db1918.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#fate-llm-a-industrial-grade-federated-learning-framework-for-large-language-models" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Paper Prowler" class="md-header__button md-logo" aria-label="Paper Prowler" data-md-component="logo">
+      
+  <img src="../../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Paper Prowler
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              FATE-LLM: A Industrial Grade Federated Learning Framework for Large Language Models
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9h-1.9M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69m-9.15 3.96h2.3L12 9l-1.15 3.65Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/davidberenstein1957/paper-prowler" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    davidberenstein1957/paper-prowler
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Paper Prowler
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  Papers
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Paper Prowler" class="md-nav__button md-logo" aria-label="Paper Prowler" data-md-component="logo">
+      
+  <img src="../../../../assets/logo.png" alt="logo">
+
+    </a>
+    Paper Prowler
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/davidberenstein1957/paper-prowler" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    davidberenstein1957/paper-prowler
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Paper Prowler
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Papers
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Papers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    synthetic data generation llms
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            synthetic data generation llms
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7687185086521095419/087a84528e00eddcebf167b07fecfc741cd0bd35d969d905535d2392c9515388/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Synthetic Test Collections for Retrieval Evaluation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7687185086521095419/7d59e73ee346bf20e448c32497594e56f348b1d4d0fc24e02843cdbb7834702c/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Synthetic Test Collections for Retrieval Evaluation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7687185086521095419/df42bdc070f382ad8d804ff00c06958915aa09c1ba3033c1b62631ad377a15a8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ChatGPT Based Data Augmentation for Improved Parameter-Efficient Debiasing of LLMs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7687185086521095419/c54ef7e3de06d8aac798b4e257172f49abd7ceda66d65c78becdfeb7c1339c5d/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Synthetic Data Generation with Large Language Models for Text Classification: Potential and Limitations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7687185086521095419/b4600927aee0adb0b52a1af5aa725844d05c870dff2122247f964bea6e23a536/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Federated Domain-Specific Knowledge Transfer on Large Language Models Using Synthetic Data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7687185086521095419/3713969ed3f7ab6fd67b23404f5d0a1a80063500a2bf6c926288545d06721030/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Differentially Private Synthetic Data via Foundation Model APIs 2: Text
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7687185086521095419/b2eae6e6f459f03d6b118f4b9988653e23007b6380e0c3cdd7c9985cf08a437e/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mitigating Catastrophic Forgetting in Large Language Models with Self-Synthesized Rehearsal
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7687185086521095419/4f8f5a6c2959929148959dfca527bf9ef1f928bcb3dc7cd0e483a70dbbc71ea6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exploring LLMs as a Source of Targeted Synthetic Textual Data to Minimize High Confidence Misclassifications
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7687185086521095419/f51dc20b212072ef6ae5b0ac84e06bd2df8b73464d6eae3b2af50f71c42a9db0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S3Eval: A Synthetic, Scalable, Systematic Evaluation Suite for Large Language Models
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7687185086521095419/3b778acbda18010571b2a242bc6999da6901d53ccd85463d54236ea987ab3a9d/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MiniCheck: Efficient Fact-Checking of LLMs on Grounding Documents
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7687185086521095419/4b9cf588260072c8784faf77ea3cf248de31ac491102dcd37aec1eae19fdd159/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Artificial Artificial Artificial Intelligence: Crowd Workers Widely Use Large Language Models for Text Production Tasks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7687185086521095419/395d9979720c3ff49e0dd480e6111855e74b76bf614421992f08252d2758bf35/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Synthetic Test Collections for Retrieval Evaluation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7687185086521095419/0506d5fc2b418d0ae02fd47db31d957a14c15b84dbaf545a1d2536a4da0d47c4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ChatGPT Based Data Augmentation for Improved Parameter-Efficient Debiasing of LLMs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7687185086521095419/67e9a3baed5e4395e79f512ed4f675c0522d5ed7f2d1bc0e83f6946617293298/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Synthetic Data Generation with Large Language Models for Text Classification: Potential and Limitations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7687185086521095419/0cae8c50bbf22ac6458d849ff0838a346db2433301d97f0d064956c433eb81dc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Federated Domain-Specific Knowledge Transfer on Large Language Models Using Synthetic Data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7687185086521095419/f5dcb530892c4205aa99ce4227281fd4b1f09854f05c6bcebadbdcb19ba78827/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Differentially Private Synthetic Data via Foundation Model APIs 2: Text
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7687185086521095419/8ed56cc0d9b21ca0436d41766433160218bdb454042088643fe04a91668ae8ef/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mitigating Catastrophic Forgetting in Large Language Models with Self-Synthesized Rehearsal
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7687185086521095419/eca4f4d2c710dc7a6914f4a5bad442dbfa5291da3e9432a945b3429952cd743e/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exploring LLMs as a Source of Targeted Synthetic Textual Data to Minimize High Confidence Misclassifications
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7687185086521095419/7ab0aedbde44a5f71fa90cf8e8f657700caf859cdbe2ede7b3c5c931bc3c49d9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S3Eval: A Synthetic, Scalable, Systematic Evaluation Suite for Large Language Models
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7687185086521095419/f3739ef851e87f09a5b90a88e25b6c39e4f68c2f1ee4a9c558d43bedcdc68b7f/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MiniCheck: Efficient Fact-Checking of LLMs on Grounding Documents
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7687185086521095419/76fdc885df31c6caa21f82525c3b3d2210531d7bd77feef288288e7295d234ee/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Artificial Artificial Artificial Intelligence: Crowd Workers Widely Use Large Language Models for Text Production Tasks
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    LLMs as judges
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            LLMs as judges
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../-8377067242701614157/70765de51dfb956ec7b0ff4a774142731ca4d9c4136387a3071b15c894d0b777/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Humans or LLMs as the Judge? A Study on Judgement Biases
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../-8377067242701614157/9cddd29dd173d2bc65c5919560c8b6250120323af4e1529c23a5c890389fec89/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Can LLM be a Personalized Judge?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../-8377067242701614157/ef6d813e2c26d16a046f50650c4514ae0924c549b49b4a1677503d0ff844be92/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    On the Limitations of Fine-tuned Judge Models for LLM Evaluation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../-8377067242701614157/cc7b4cb45b132cc3d23ba68a3834cd8451e8162897864fc7aba7ad6a63370881/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JudgeLM: Fine-tuned Large Language Models are Scalable Judges
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../-8377067242701614157/ad26039fc4e1875e4fe645df28ec3e8ea82fd42edf299860ff2ab0939bf8118d/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Is LLM-as-a-Judge Robust? Investigating Universal Adversarial Attacks on Zero-shot LLM Assessment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../-8377067242701614157/ecd1090feb2cefa189f30901fc838f310b18873555d3760d9aadfd495d0aa83d/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Replacing Judges with Juries: Evaluating LLM Generations with a Panel of Diverse Models
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../-8377067242701614157/bcbec230eddceaf3f7eef0799d1cf561ff6fa83a8ce09ed3233fe97112d5dac4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mind vs. Mouth: On Measuring Re-judge Inconsistency of Social Bias in Large Language Models
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../-8377067242701614157/4a8e937da1200627830870c07497131fe7c84309187edbcf18961a0425853aa2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../-8377067242701614157/237ff27acb132247fa6ce0e92ff5489c49b62ec7834673f8ba035850a131b670/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Evaluating the Factuality of Large Language Models using Large-Scale Knowledge Graphs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../-8377067242701614157/cfbe349f56e950ad4fde2cc529897893012f1d0466fcc1645f8530572efc04fd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Can Many-Shot In-Context Learning Help Long-Context LLM Judges? See More, Judge Better!
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    data quality for LLMs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            data quality for LLMs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../f7f262cce54cf8b35012c5328fd7f800707f80925f207c2ea4fbf59f76120000/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MEGAnno+: A Human-LLM Collaborative Annotation System
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3dd33a07282cc7d5994269d2e955a480df34a788ab2de927a326f72d36b24534/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A Comparative Study on Annotation Quality of Crowdsourcing and LLM via Label Aggregation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../850614379780f9fbe0e259b9556ab0e774c40107ea95bb2bf1084074fc832c84/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selective Reflection-Tuning: Student-Selected Data Recycling for LLM Instruction-Tuning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9259a7c56f4b45036b2ff0b6146afce940635521e648ae2aacb0d2655173e762/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Label-free Node Classification on Graphs with Large Language Models (LLMS)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7d9bf2c964dd29dfe457920873ea2d27df399bb3877534d85d09b4c626e4077d/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OPDAI at SemEval-2024 Task 6: Small LLMs can Accelerate Hallucination Detection with Weakly Supervised Data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7c032378e1ee4331b0969bed9248056ef0d6182e1d0341694da9622a4b9c9cfc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    METAL: Metamorphic Testing Framework for Analyzing Large-Language Model Qualities
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../e59a93b980c1587952fd591081edb63485c9d8a67a6813d2640ac44585382908/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Towards Training A Chinese Large Language Model for Anesthesiology
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    FATE-LLM: A Industrial Grade Federated Learning Framework for Large Language Models
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    FATE-LLM: A Industrial Grade Federated Learning Framework for Large Language Models
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#abstract" class="md-nav__link">
+    <span class="md-ellipsis">
+      Abstract
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#socials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Socials
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pdf" class="md-nav__link">
+    <span class="md-ellipsis">
+      PDF
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../e086c20943b945085fe4dc6e8194d198338bb80cb3d0cc13d67125075c3af1a2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Can LLMs Speak For Diverse People? Tuning LLMs via Debate to Generate Controllable Controversial Statements
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../916aef1d06cb486b5fbb74ea705493b75ef2447c67aed99b5a56a245ee6d3469/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Large Language Models and User Trust: Consequence of Self-Referential Learning Loop and the Deskilling of Healthcare Professionals
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    human feedback LLMs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            human feedback LLMs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../-2211300724814296630/be9144b6323f1bb4e1c337a67266379297875b771915a34d4cc4a740aa1c6a6d/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LLM A: Human in the Loop Large Language Models Enabled A Search for Robotics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../-2211300724814296630/8b58607e712ea934d601ff2b19265e37cfd367434e6f21591cb2a9b4f6a2d8b9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Verbosity Bias in Preference Labeling by Large Language Models
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../-2211300724814296630/152fe63bae013960eb84a72664e18eaa9a9dd4cf2c2bdc2c59677191f006d956/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Optimizing Autonomous Driving for Safety: A Human-Centric Approach with LLM-Enhanced RLHF
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../-2211300724814296630/ef7e94f530790fb26073eedbef0c2df58dd48ae9deca359707bc47cf4d040df5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Aligning Large Language Models through Synthetic Feedback
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../-2211300724814296630/d4a1ed36a75d69ff02912f6cc6ea4ece3b27a1956eb3c9e660709ce7dd363d3f/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The Past, Present and Better Future of Feedback Learning in Large Language Models for Subjective Human Preferences and Values
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../-2211300724814296630/161a89c1138b09aabb101e4feecf966e5f4d3fe3522d432fc23de3329ab94cdf/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LLMs Beyond English: Scaling the Multilingual Capability of LLMs with Cross-Lingual Feedback
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../-2211300724814296630/a90c9c743f8dc92203477ae13fca98f9cc08811673b2b108bc03fca13e479eda/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A Survey on Human Preference Learning for Large Language Models
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../-2211300724814296630/4a7341f384539567332169b8690ba66532249f88f28a5bed368d04e5fae6bf96/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LaFFi: Leveraging Hybrid Natural Language Feedback for Fine-tuning Language Models
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../-2211300724814296630/26fda650c80ea2b7e0b8008755b9c4501791c8d9746bcd00367481eee390a8a1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Prototypical Reward Network for Data-Efficient RLHF
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../-2211300724814296630/63f77ec106ec48f8bdf1b500b894faddf3808367057f1138ce80396ce9681d20/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IterAlign: Iterative Constitutional Alignment of Large Language Models
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    LLM benchmarking and evaluation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            LLM benchmarking and evaluation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../-8732978400105165891/5ae61d4f0c8bb762479a22d3fb4c1155077d5b3ae5d1affb4f5fc8397ccc44ee/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MRKE: The Multi-hop Reasoning Evaluation of LLMs by Knowledge Edition
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../-8732978400105165891/3baee9d2fe77db6122aeb2d0f72b0b51f6393cde2676ea079c23ff2f1ba25539/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ZhuJiu: A Multi-dimensional, Multi-faceted Chinese Benchmark for Large Language Models
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../-8732978400105165891/ae8e78e8f62414c5bc1398e6e7fa6d7ed5e92b5657940b40bde091648cf6a04e/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OpenEval: Benchmarking Chinese LLMs across Capability, Alignment and Safety
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../-8732978400105165891/4f2938c0796c1cb7c6deb232cf489bd37c86fec5b6949321d1f09450eab2ba6a/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    tinyBenchmarks: evaluating LLMs with fewer examples
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../-8732978400105165891/28d24a1dcc1e849173edb68238fd4ce42ee6bdedf6789b8d43d038142d42c5f1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How Far Are LLMs from Believable AI? A Benchmark for Evaluating the Believability of Human Behavior Simulation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../-8732978400105165891/1b2b11a90753f096660e31ed0f2544b4479500627a8415268d94e33f3915e85b/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Can Large Language Models be Trusted for Evaluation? Scalable Meta-Evaluation of LLMs as Evaluators via Agent Debate
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../-8732978400105165891/c617cda5156276c2c0de16e3276b09b3d3e6652cda052a4c704a2411fce87e9d/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A User-Centric Benchmark for Evaluating Large Language Models
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../-8732978400105165891/a70fcfada9bb004b4006decfa221c19975eedd91dd6b43a28f2a0c762b704a09/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PromptCBLUE: A Chinese Prompt Tuning Benchmark for the Medical Domain
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../-8732978400105165891/e7ac09c228c26db37659b7317ef439f859f7da03abcd73bcc1465d121172e618/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    State of What Art? A Call for Multi-Prompt LLM Evaluation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../-8732978400105165891/621f2ed5b623ffdbb85483c6bfe4b7d88320bad9abdb32aeffd9910562368257/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LLMs as Factual Reasoners: Insights from Existing Benchmarks and Beyond
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#abstract" class="md-nav__link">
+    <span class="md-ellipsis">
+      Abstract
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#socials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Socials
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pdf" class="md-nav__link">
+    <span class="md-ellipsis">
+      PDF
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="fate-llm-a-industrial-grade-federated-learning-framework-for-large-language-models">FATE-LLM: A Industrial Grade Federated Learning Framework for Large Language Models<a class="headerlink" href="#fate-llm-a-industrial-grade-federated-learning-framework-for-large-language-models" title="Permanent link">&para;</a></h1>
+<p><a href="http://arxiv.org/abs/2310.10049v1">Arxiv Link</a> - 2023-10-16 04:17:13 </p>
+<h2 id="abstract">Abstract<a class="headerlink" href="#abstract" title="Permanent link">&para;</a></h2>
+<p>Large Language Models (LLMs), such as ChatGPT, LLaMA, GLM, and PaLM, have
+exhibited remarkable performances across various tasks in recent years.
+However, LLMs face two main challenges in real-world applications. One
+challenge is that training LLMs consumes vast computing resources, preventing
+LLMs from being adopted by small and medium-sized enterprises with limited
+computing resources. Another is that training LLM requires a large amount of
+high-quality data, which are often scattered among enterprises. To address
+these challenges, we propose FATE-LLM, an industrial-grade federated learning
+framework for large language models. FATE-LLM (1) facilitates federated
+learning for large language models (coined FedLLM); (2) promotes efficient
+training of FedLLM using parameter-efficient fine-tuning methods; (3) protects
+the intellectual property of LLMs; (4) preserves data privacy during training
+and inference through privacy-preserving mechanisms. We release the code of
+FATE-LLM at https://github.com/FederatedAI/FATE-LLM to facilitate the research
+of FedLLM and enable a broad range of industrial applications. </p>
+<h2 id="socials">Socials<a class="headerlink" href="#socials" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>LinkedIn</th>
+<th>X</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🌟 Exciting News in the World of Large Language Models (LLMs)! 🌟<br><br>Large Language Models (LLMs) like ChatGPT, LLaMA, GLM, and PaLM have been making waves with their exceptional performances. However, two key challenges have hindered their widespread adoption: resource-intensive training and the need for vast amounts of high-quality data.<br><br>Introducing FATE-LLM - an industrial-grade federated learning framework designed to tackle these challenges head-on. FATE-LLM enables federated learning for large language models, promotes efficient training through parameter-efficient fine-tuning methods, safeguards intellectual property, and ensures data privacy during training and inference.<br><br>Excited to learn more? Dive into the details and explore the code of FATE-LLM at: http://arxiv.org/abs/2310.10049v1<br><br>Let's revolutionize the world of LLMs together! 🚀<br>#LLMs #FederatedLearning #AI #NLP #TechInnovation</td>
+<td>🚀 Exciting news in the world of Large Language Models (LLMs)! Introducing FATE-LLM, an industrial-grade federated learning framework designed to tackle challenges faced by LLMs in real-world applications. Learn more about FATE-LLM and its features at: http://arxiv.org/abs/2310.10049v1 #AI #NLP #LLMs #FederatedLearning #TechResearch</td>
+</tr>
+</tbody>
+</table>
+<h2 id="pdf">PDF<a class="headerlink" href="#pdf" title="Permanent link">&para;</a></h2>
+<iframe src='http://arxiv.org/pdf/2310.10049v1' width='100%' height='1000px'></iframe>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+        
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../e59a93b980c1587952fd591081edb63485c9d8a67a6813d2640ac44585382908/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Towards Training A Chinese Large Language Model for Anesthesiology">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Towards Training A Chinese Large Language Model for Anesthesiology
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../e086c20943b945085fe4dc6e8194d198338bb80cb3d0cc13d67125075c3af1a2/" class="md-footer__link md-footer__link--next" aria-label="Next: Can LLMs Speak For Diverse People? Tuning LLMs via Debate to Generate Controllable Controversial Statements">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Can LLMs Speak For Diverse People? Tuning LLMs via Debate to Generate Controllable Controversial Statements
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2017 - 2024 davidberenstein1957
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/david-berenstein-1bab11105" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://x.com/davidbstein1957" target="_blank" rel="noopener" title="x.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8l164.9-188.5L26.8 48h145.6l100.5 132.9L389.2 48zm-24.8 373.8h39.1L151.1 88h-42l255.3 333.8z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.sections", "navigation.tabs", "navigation.footer", "navigation.top", "navigation.tracking", "navigation.path", "toc.follow", "content.code.copy", "content.code.annotate", "content.action.edit", "search.suggest", "search.highlight", "search.share"], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.ad660dcc.min.js"></script>
+      
+        <script src="../../../../js/open_in_new_tab.js"></script>
+      
+    
+  </body>
+</html>
